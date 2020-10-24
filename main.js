@@ -12,7 +12,10 @@ function main() {
     var vertices = [
         -0.5, 0.5,      // Titik A (kiri-atas)
         0.5, 0.5,       // Titik B (kanan-atas)
-        0.5, -0.5       // Titik C (kanan-bawah)
+        0.5, 0.5,       // Titik B
+        0.5, -0.5,      // Titik C (kanan-bawah)
+        0.5, -0.5,      // Titik C
+        -0.5, 0.5       // Titik A
     ];
 
     var vertexBuffer = gl.createBuffer();
@@ -68,8 +71,11 @@ function main() {
     gl.clearColor(0.0, 255.0, 255.0, 0.8); // warna kotak
     gl.clear(gl.COLOR_BUFFER_BIT);
 
-    var primitive = gl.POINTS;
+    var primitive = gl.LINES;
     var offset = 0;
-    var nVertex = 3;
+    var nVertex = 6;
     gl.drawArrays(primitive, offset, nVertex);
+
+    
+    // Menambah vertice, mengubah primitive, nVertex
 }
