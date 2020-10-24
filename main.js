@@ -10,8 +10,8 @@ function main() {
     */
 
     var vertices = [
-        -0.5, 0.5,      // Titik A (kiri-atas)
         0.5, 0.5,       // Titik B (kanan-atas)
+        -0.5, 0.5,      // Titik A (kiri-atas)
         0.5, -0.5,      // Titik C (kanan-bawah)
         -0.5, -0.5      // Titik D (kiri-bawah)
     ];
@@ -68,7 +68,7 @@ function main() {
     gl.clearColor(0.0, 255.0, 255.0, 0.8); // warna kotak
     gl.clear(gl.COLOR_BUFFER_BIT);
 
-    var primitive = gl.TRIANGLE_FAN;
+    var primitive = gl.TRIANGLE_STRIP;
     var offset = 0;
     var nVertex = 4;
     gl.drawArrays(primitive, offset, nVertex);
