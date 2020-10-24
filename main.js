@@ -13,7 +13,7 @@ function main() {
         -0.5, 0.5,      // Titik A (kiri-atas)
         0.5, 0.5,       // Titik B (kanan-atas)
         0.5, -0.5,      // Titik C (kanan-bawah)
-        -0.5, 0.5       // Titik A
+        -0.5, -0.5      // Titik D (kiri-bawah)
     ];
 
     var vertexBuffer = gl.createBuffer();
@@ -26,7 +26,6 @@ function main() {
     var vertexShaderSource = `
         attribute vec2 a_Position;
         void main() {
-            gl_PointSize = 20.0; // ukuran titik
             gl_Position = vec4(a_Position, 0.0, 1.0); // posisi/koordinat titik
         }
     `;
@@ -69,7 +68,7 @@ function main() {
     gl.clearColor(0.0, 255.0, 255.0, 0.8); // warna kotak
     gl.clear(gl.COLOR_BUFFER_BIT);
 
-    var primitive = gl.LINE_STRIP;
+    var primitive = gl.TRIANGLE_FAN;
     var offset = 0;
     var nVertex = 4;
     gl.drawArrays(primitive, offset, nVertex);
